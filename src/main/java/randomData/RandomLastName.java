@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class RandomLastName {
     public String printLastName(boolean sex) throws IOException {
-        String maleLastName = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/maleLastNames.txt";
-        String femaleLastName = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/femaleLastNames.txt";
+        String maleLastName = "src/main/resources/maleLastNames.txt";
+        String femaleLastName = "src/main/resources/femaleLastNames.txt";
         String filePath;
         if (!sex) {
             filePath = femaleLastName;

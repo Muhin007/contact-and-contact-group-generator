@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class RandomPatronymic {
     public String printPatronymic(boolean sex) throws IOException {
-        String malePatronymic = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/malePatronymic.txt";
-        String femalePatronymic = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/femalePatronymic.txt";
+        String malePatronymic = "src/main/resources/malePatronymic.txt";
+        String femalePatronymic = "src/main/resources/femalePatronymic.txt";
         String filePath;
         if (!sex) {
             filePath = femalePatronymic;

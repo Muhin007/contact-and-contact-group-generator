@@ -9,7 +9,7 @@ public class RandomAddress {
     private Random random = new Random();
 
     private String getCity() throws IOException {
-        String cites = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/cites.txt";
+        String cites = "src/main/resources/cites.txt";
         List<String> sites = new ArrayList<>();
         File file = new File(cites);
         BufferedReader in = null;
@@ -32,7 +32,7 @@ public class RandomAddress {
     }
 
     private String getStreet() throws IOException {
-        String cites = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/streets.txt";
+        String cites = "src/main/resources/streets.txt";
         List<String> streets = new ArrayList<>();
         File file = new File(cites);
         BufferedReader in = null;

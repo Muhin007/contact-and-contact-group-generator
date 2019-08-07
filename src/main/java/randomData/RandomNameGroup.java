@@ -9,7 +9,7 @@ public class RandomNameGroup {
 
     public String printNameGroup() throws IOException {
 
-        String filePath = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/words.txt";
+        String filePath = "src/main/resources/words.txt";
         Random random = new Random();
         List<String> firstNames = new ArrayList<>();
         File file = new File(filePath);

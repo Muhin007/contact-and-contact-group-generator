@@ -8,8 +8,8 @@ import java.util.Random;
 public class RandomFirstName {
     public String printFirstName(boolean sex) throws IOException {
 
-        String maleFirstName = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/maleFirstNames.txt";
-        String femaleFirstName = "C:/DEV/Project/Test3InfinnitySolutions/src/main/resources/femaleFirstNames.txt";
+        String maleFirstName = "src/main/resources/maleFirstNames.txt";
+        String femaleFirstName = "src/main/resources/femaleFirstNames.txt";
         String filePath;
         if (!sex) {
             filePath = femaleFirstName;
