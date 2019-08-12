@@ -3,6 +3,7 @@ package xmlGenerators;
 import randomData.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import startProgram.Generator;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -19,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class XMLFileForGroup {
-
+private Generator generator = new Generator();
     private RandomNameGroup randomNameGroup = new RandomNameGroup();
     private RandomFullName randomFullName = new RandomFullName();
     private RandomAddress randomAddress = new RandomAddress();
@@ -87,7 +88,8 @@ public class XMLFileForGroup {
         } catch (ParserConfigurationException ex) {
             System.out.println("Error building document");
         }
-        System.out.println("Файл сгенерирован");
+        System.out.println("Файл сгенерирован \n ______________________________________________ \n");
+     generator.returnToMenu();
     }
 }
 
