@@ -36,7 +36,7 @@ public class Generator {
             case "yes":
                 start();
                 break;
-            case "нno":
+            case "no":
                 System.out.println("Спасибо за работу");
                 System.exit(0);
                 break;
