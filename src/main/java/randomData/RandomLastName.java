@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class RandomLastName {
     public String printLastName(boolean sex) throws IOException {
-        String maleLastName = "src/main/resources/maleLastNames.txt";
-        String femaleLastName = "src/main/resources/femaleLastNames.txt";
+        String maleLastName = "maleLastNames.txt";
+        String femaleLastName = "femaleLastNames.txt";
         String filePath;
         if (!sex) {
             filePath = femaleLastName;
@@ -17,25 +17,21 @@ public class RandomLastName {
         }
         Random random = new Random();
         List<String> lastNames = new ArrayList<>();
-        File file = new File(filePath);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), "UTF8"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(RandomLastName.class.getClassLoader()
+                .getResourceAsStream(filePath), "UTF8"));
         String r;
+        assert in != null;
         while ((r = in.readLine()) != null) {
-            lastNames.add(r.replaceAll("\\s+",""));
+            lastNames.add(r.replaceAll("\\s+", ""));
         }
         try {
             in.close();
-        } catch (IOException e) {
+        } catch (
+                IOException e)
+        {
             e.printStackTrace();
         }
         return lastNames.get(random.nextInt(lastNames.size()));
     }
-
 }
 

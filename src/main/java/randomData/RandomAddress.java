@@ -9,40 +9,29 @@ public class RandomAddress {
     private Random random = new Random();
 
     private String getCity() throws IOException {
-        String cites = "src/main/resources/cites.txt";
-        List<String> sites = new ArrayList<>();
-        File file = new File(cites);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), "UTF8"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        String city = "cites.txt";
+        List<String> cites = new ArrayList<>();
+        BufferedReader in = new BufferedReader(new InputStreamReader(RandomAddress.class.getClassLoader()
+                .getResourceAsStream(city), "UTF8"));
         String r;
         while ((r = in.readLine()) != null) {
-            sites.add(r.replaceAll("\\s+", ""));
+            cites.add(r.replaceAll("\\s+", ""));
         }
         try {
             in.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return sites.get(random.nextInt(sites.size()));
+        return cites.get(random.nextInt(cites.size()));
     }
 
     private String getStreet() throws IOException {
-        String cites = "src/main/resources/streets.txt";
+        String street = "streets.txt";
         List<String> streets = new ArrayList<>();
-        File file = new File(cites);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), "UTF8"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(RandomAddress.class.getClassLoader()
+                .getResourceAsStream(street), "UTF8"));
         String r;
+        assert in != null;
         while ((r = in.readLine()) != null) {
             streets.add(r);
         }
@@ -54,10 +43,11 @@ public class RandomAddress {
         return streets.get(random.nextInt(streets.size()));
     }
 
-    private int getHouse(){
+    private int getHouse() {
         return random.nextInt(100);
     }
-    private int getFlat(){
+
+    private int getFlat() {
         return random.nextInt(100);
     }
 

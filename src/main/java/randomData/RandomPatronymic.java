@@ -7,8 +7,8 @@ import java.util.Random;
 
 public class RandomPatronymic {
     public String printPatronymic(boolean sex) throws IOException {
-        String malePatronymic = "src/main/resources/malePatronymic.txt";
-        String femalePatronymic = "src/main/resources/femalePatronymic.txt";
+        String malePatronymic = "malePatronymic.txt";
+        String femalePatronymic = "femalePatronymic.txt";
         String filePath;
         if (!sex) {
             filePath = femalePatronymic;
@@ -17,17 +17,12 @@ public class RandomPatronymic {
         }
         Random random = new Random();
         List<String> patronymics = new ArrayList<>();
-        File file = new File(filePath);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), "UTF8"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(RandomPatronymic.class.getClassLoader()
+                .getResourceAsStream(filePath), "UTF8"));
         String r;
+        assert in != null;
         while ((r = in.readLine()) != null) {
-            patronymics.add(r.replaceAll("\\s+",""));
+            patronymics.add(r.replaceAll("\\s+", ""));
         }
         try {
             in.close();

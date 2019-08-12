@@ -8,8 +8,8 @@ import java.util.Random;
 public class RandomFirstName {
     public String printFirstName(boolean sex) throws IOException {
 
-        String maleFirstName = "src/main/resources/maleFirstNames.txt";
-        String femaleFirstName = "src/main/resources/femaleFirstNames.txt";
+        String maleFirstName = "maleFirstNames.txt";
+        String femaleFirstName = "femaleFirstNames.txt";
         String filePath;
         if (!sex) {
             filePath = femaleFirstName;
@@ -18,17 +18,12 @@ public class RandomFirstName {
         }
         Random random = new Random();
         List<String> firstNames = new ArrayList<>();
-        File file = new File(filePath);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), "UTF8"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(RandomFirstName.class.getClassLoader()
+                .getResourceAsStream(filePath), "UTF8"));
         String r;
+        assert in != null;
         while ((r = in.readLine()) != null) {
-            firstNames.add(r.replaceAll("\\s+",""));
+            firstNames.add(r.replaceAll("\\s+", ""));
         }
         try {
             in.close();

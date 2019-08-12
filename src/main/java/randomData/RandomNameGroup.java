@@ -9,18 +9,13 @@ public class RandomNameGroup {
 
     public String printNameGroup() throws IOException {
 
-        String filePath = "src/main/resources/words.txt";
+        String filePath = "words.txt";
         Random random = new Random();
         List<String> firstNames = new ArrayList<>();
-        File file = new File(filePath);
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(
-                    new InputStreamReader(new FileInputStream(file), "UTF8"));
-        } catch (UnsupportedEncodingException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        BufferedReader in = new BufferedReader(new InputStreamReader(RandomNameGroup.class.getClassLoader()
+                .getResourceAsStream(filePath), "UTF8"));
         String r;
+        assert in != null;
         while ((r = in.readLine()) != null) {
             firstNames.add(r);
         }
