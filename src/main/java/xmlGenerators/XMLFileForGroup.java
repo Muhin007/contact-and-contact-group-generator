@@ -15,6 +15,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class XMLFileForGroup {
 
@@ -71,8 +73,10 @@ public class XMLFileForGroup {
             aTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             DOMSource source = new DOMSource(doc);
+            Date date = new Date() ;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss") ;
             try {
-                FileWriter fos = new FileWriter("group.xml");
+                FileWriter fos = new FileWriter(dateFormat.format(date) + "_group_" + numberOfPerson + " units.xml");
                 StreamResult result = new StreamResult(fos);
                 aTransformer.transform(source, result);
             } catch (IOException e) {

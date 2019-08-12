@@ -15,6 +15,8 @@ import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class XMLFileForPerson {
     private RandomGUID randomGUID = new RandomGUID();
@@ -56,8 +58,10 @@ public class XMLFileForPerson {
             aTransformer.setOutputProperty(OutputKeys.INDENT, "yes");
 
             DOMSource source = new DOMSource(doc);
+            Date date = new Date() ;
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss") ;
             try {
-                FileWriter fos = new FileWriter("person.xml");
+                FileWriter fos = new FileWriter(dateFormat.format(date) + "_person.xml");
                 StreamResult result = new StreamResult(fos);
                 aTransformer.transform(source, result);
             } catch (IOException e) {
