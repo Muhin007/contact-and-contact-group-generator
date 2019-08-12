@@ -6,13 +6,13 @@ import xmlGenerators.XMLFileForPerson;
 import java.util.Scanner;
 
 public class Generator {
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
+    private String scanner = scan.nextLine();
+
     public void start() {
         System.out.println("Какие данные будем генерировать? \n Для генерации данных 1 контакта введите - контакт \n " +
                 "для генерации группы контактов введите - группа");
-
-        String scanner = scan.nextLine();
-        switch (scanner){
+        switch (scanner) {
             case "контакт":
                 XMLFileForPerson onePerson = new XMLFileForPerson();
                 onePerson.writeXMLFile();
@@ -26,11 +26,11 @@ public class Generator {
                 break;
         }
     }
-    public void returnToMenu(){
+
+    public void returnToMenu() {
         System.out.println("Будем еще генерировать данные?");
-        Scanner scan = new Scanner(System.in);
-        String scanner = scan.nextLine();
-        switch (scanner){
+        scanner = scan.nextLine();
+        switch (scanner) {
             case "да":
                 start();
                 break;

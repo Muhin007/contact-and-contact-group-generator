@@ -77,7 +77,7 @@ private Generator generator = new Generator();
             Date date = new Date() ;
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss") ;
             try {
-                FileWriter fos = new FileWriter(dateFormat.format(date) + "_group_" + numberOfPerson + " units.xml");
+                FileWriter fos = new FileWriter(dateFormat.format(date) + "_group_" + numberOfPerson + "_units.xml");
                 StreamResult result = new StreamResult(fos);
                 aTransformer.transform(source, result);
             } catch (IOException e) {
